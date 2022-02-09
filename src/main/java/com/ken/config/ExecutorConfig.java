@@ -27,6 +27,8 @@ public class ExecutorConfig {
     public Executor asyncServiceExecutor(){
 
         logger.info("start asyncServiceExecutor");
+        logger.info("===线程池核心数大小==={}",taskExecutorBuilder.build().getCorePoolSize());
+        logger.info("===线程池非核心线程存活时间==={}",taskExecutorBuilder.build().getKeepAliveSeconds());
         return taskExecutorBuilder.build(VisiableThreadPoolTaskExecutor.class);
     }
 }

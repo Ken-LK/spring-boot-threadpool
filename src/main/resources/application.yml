@@ -1,8 +1,24 @@
 spring:
+  application:
+    name: thread-pool-application
+  boot:
+    admin:
+      client:
+        url: http://localhost:9091
   task:
     execution:
       threadNamePrefix: ken-task-
       pool:
         max-size: 16
         queue-capacity: 100
-        keep-alive: "10s"
+        keep-alive: 60s
+        core-size: 6
+logging:
+  file:
+    path: /Users/ken/Downloads/spring-boot-admin-client.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
